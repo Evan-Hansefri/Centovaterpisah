@@ -4,7 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Streaming Player</title>
-    <script src="loadPlayer.js"></script> <!-- Memanggil file JavaScript yang telah dibuat -->
+
+    <!-- Coba load HTTPS dulu -->
+    <script src="https://scg.streamingmurah.com:2199/system/player.js"></script>
+
+    <!-- Fallback ke HTTP jika HTTPS gagal -->
+    <script>
+        if (typeof CentovaCastPlayer === 'undefined') {
+            var script = document.createElement("script");
+            script.type = "text/javascript";
+            script.src = "http://scg.streamingmurah.com:2199/system/player.js";
+            document.head.appendChild(script);
+        }
+    </script>
 </head>
 <body>
     <div class="cc_player" data-username="daniel2" data-size="sm" data-style="light">
